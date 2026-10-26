@@ -2460,3 +2460,1135 @@ sett
     padding-bottom: 50px;
   }
 }
+
+/* GOOGLE REVIEW CTA CARD */
+
+.google-review-card {
+  padding: 38px;
+  background: #111;
+  border: 1px solid #303030;
+  border-top: 3px solid #ff3038;
+}
+
+.google-review-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 31px;
+  font-weight: 800;
+  color: #4285f4;
+  margin-bottom: 25px;
+}
+
+.google-review-eyebrow {
+  color: #ff3038;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.google-review-card h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 38px;
+  line-height: 1;
+  margin: 18px 0;
+}
+
+.google-review-card > p:not(.google-review-eyebrow):not(.google-review-small) {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.google-review-card .review-submit-btn {
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+}
+
+.google-review-small {
+  color: #777;
+  font-size: 11px;
+  text-align: center;
+  margin: 15px 0 0;
+}
+
+@media (max-width: 768px) {
+  .google-review-card {
+    padding: 25px 20px;
+  }
+
+  .google-review-card h3 {
+    font-size: 32px;
+  }
+}
+
+/* Gear collection product images */
+.gear-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+.gear-image {
+  display: block;
+  width: 75%;
+  height: 190px;
+  object-fit: contain;
+  margin: 0 auto;
+  transition: transform 0.4s ease;
+}
+
+.gear-card:hover .gear-image {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .gear-image {
+    width: 70%;
+    height: 155px;
+  }
+}
+
+/* ===== RIDEMAGIC HELMET COLLECTION ===== */
+
+.helmet-collection {
+  position: relative;
+  background: #0b0c0f;
+  color: #fefaf3;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  overflow: hidden;
+  scroll-margin-top: 90px;
+}
+
+.helmet-collection-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin: 45px 0;
+}
+
+.helmet-collection-heading h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(42px, 6vw, 82px);
+  line-height: 0.95;
+  margin: 12px 0 0;
+  text-transform: uppercase;
+}
+
+.helmet-collection-heading h2 span {
+  color: #ed2939;
+}
+
+.helmet-collection-heading > p {
+  max-width: 320px;
+  line-height: 1.8;
+  color: #a7a7a7;
+}
+
+.helmet-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.helmet-product-card {
+  min-width: 0;
+  border: 1px solid #292a2e;
+  background: #111216;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.helmet-product-card:hover {
+  border-color: #ed2939;
+  transform: translateY(-6px);
+}
+
+.helmet-product-image {
+  position: relative;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #27282d 0%, #111216 72%);
+}
+
+.helmet-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.helmet-product-card:hover .helmet-product-image img {
+  transform: scale(1.07);
+}
+
+.product-number {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  color: #ed2939;
+  font-size: 12px;
+  z-index: 1;
+}
+
+.helmet-product-info {
+  padding: 20px;
+}
+
+.helmet-product-info > span {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #a7a7a7;
+}
+
+.helmet-product-info h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 24px;
+  margin: 10px 0 0;
+}
+
+.helmet-back-link {
+  display: inline-block;
+  margin-top: 35px;
+  color: #fefaf3;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  transition: color 0.3s ease;
+}
+
+.helmet-back-link:hover {
+  color: #ed2939;
+}
+
+@media (max-width: 900px) {
+  .helmet-products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .helmet-product-image {
+    height: 230px;
+  }
+}
+
+@media (max-width: 600px) {
+  .helmet-collection-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .helmet-products-grid {
+    gap: 12px;
+  }
+
+  .helmet-product-image {
+    height: 170px;
+    padding: 10px;
+  }
+
+  .helmet-product-info {
+    padding: 12px;
+  }
+
+  .helmet-product-info h3 {
+    font-size: 20px;
+  }
+
+  .helmet-product-info > span {
+    font-size: 9px;
+    letter-spacing: 0.8px;
+  }
+}
+
+/* ===== HELMET COLLECTION PAGE ===== */
+
+.helmet-page {
+  background: #08090b;
+  color: #fefaf3;
+}
+
+.helmet-page-hero {
+  position: relative;
+  min-height: 82vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+  padding: 130px 8% 75px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 75% 45%, #252126 0%, #111114 38%, #08090b 75%);
+}
+
+.helmet-page-glow {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  right: 12%;
+  top: 20%;
+  border-radius: 50%;
+  background: #ed2939;
+  filter: blur(150px);
+  opacity: 0.13;
+  pointer-events: none;
+}
+
+.helmet-page-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.helmet-page-copy h1 {
+  margin: 24px 0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(76px, 10vw, 145px);
+  line-height: 0.82;
+  font-weight: 900;
+}
+
+.helmet-page-copy h1 span,
+.helmet-catalogue-heading h2 span,
+.helmet-page-cta h2 span {
+  color: #ed2939;
+}
+
+.helmet-page-copy > p:not(.eyebrow) {
+  max-width: 420px;
+  margin-bottom: 28px;
+  color: #b8b6b5;
+  line-height: 1.8;
+}
+
+.helmet-page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 50px;
+  color: #a6a4a3;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.helmet-page-hero-image {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.helmet-page-hero-image img {
+  width: 100%;
+  max-width: 570px;
+  max-height: 520px;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 40px #000);
+  animation: helmetPageFloat 5s ease-in-out infinite;
+}
+
+@keyframes helmetPageFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+.helmet-catalogue {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  scroll-margin-top: 90px;
+}
+
+.helmet-catalogue-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.helmet-catalogue-heading h2 {
+  margin: 0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 0.9;
+}
+
+.helmet-catalogue-heading > p {
+  max-width: 310px;
+  color: #a7a7a7;
+  line-height: 1.8;
+}
+
+.helmet-catalogue-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.catalogue-card {
+  min-width: 0;
+  background: #111216;
+  border: 1px solid #292a2e;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.catalogue-card:hover {
+  transform: translateY(-7px);
+  border-color: #ed2939;
+}
+
+.catalogue-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 270px;
+  padding: 18px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #292a2f 0%, #111216 75%);
+}
+
+.catalogue-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.catalogue-card:hover .catalogue-image img {
+  transform: scale(1.07);
+}
+
+.catalogue-number {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  color: #ed2939;
+  font-size: 12px;
+}
+
+.catalogue-details {
+  padding: 20px 16px;
+}
+
+.catalogue-details p {
+  margin: 0 0 10px;
+  color: #a7a7a7;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.catalogue-details h3 {
+  margin: 0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 25px;
+}
+
+.catalogue-back-link {
+  display: inline-block;
+  margin-top: 35px;
+  color: #fefaf3;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.catalogue-back-link:hover {
+  color: #ed2939;
+}
+
+.helmet-page-cta {
+  padding: 85px 24px;
+  text-align: center;
+  background: #111216;
+}
+
+.helmet-page-cta h2 {
+  margin: 22px 0 30px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(46px, 7vw, 88px);
+  line-height: 0.95;
+}
+
+.helmet-page .footer {
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.helmet-page .footer .brand img {
+  display: block;
+  width: 125px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .helmet-page-hero {
+    min-height: auto;
+    padding: 140px 6% 65px;
+    gap: 15px;
+  }
+
+  .helmet-page-copy h1 {
+    font-size: clamp(68px, 11vw, 100px);
+  }
+
+  .helmet-catalogue-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalogue-image {
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .helmet-page-hero {
+    grid-template-columns: 1fr;
+    padding: 125px 22px 55px;
+  }
+
+  .helmet-page-copy h1 {
+    font-size: clamp(78px, 19vw, 115px);
+  }
+
+  .helmet-page-hero-image img {
+    max-height: 330px;
+  }
+
+  .helmet-page-meta {
+    margin-top: 30px;
+  }
+
+  .helmet-catalogue {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .helmet-catalogue-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .helmet-catalogue-grid {
+    gap: 12px;
+  }
+
+  .catalogue-image {
+    height: 170px;
+    padding: 10px;
+  }
+
+  .catalogue-details {
+    padding: 13px 10px;
+  }
+
+  .catalogue-details h3 {
+    font-size: 20px;
+  }
+
+  .catalogue-details p {
+    font-size: 8px;
+    line-height: 1.5;
+  }
+
+  .helmet-page .footer {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* EDITORIAL HELMET HERO */
+
+.helmet-editorial {
+  min-height: 100svh;
+  height: 850px;
+  max-height: 1050px;
+  position: relative;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 52% 48%, #391010 0%, #170c0c 28%, transparent 58%),
+    #080808;
+}
+
+.editorial-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(#ffffff09 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff09 1px, transparent 1px);
+  background-size: 55px 55px;
+  opacity: .45;
+  mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+}
+
+.editorial-glow {
+  position: absolute;
+  z-index: -1;
+  left: 27%;
+  top: 18%;
+  width: 48%;
+  height: 58%;
+  background: #ff1717;
+  filter: blur(150px);
+  opacity: .16;
+  border-radius: 50%;
+}
+
+.editorial-topline {
+  position: absolute;
+  top: 112px;
+  left: 6%;
+  right: 6%;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #929292;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.editorial-title {
+  position: absolute;
+  top: 22%;
+  left: 5%;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(100px, 19vw, 285px);
+  line-height: .68;
+  letter-spacing: -.045em;
+  white-space: nowrap;
+  color: #f4f4f4;
+}
+
+.editorial-title > span:nth-child(2) {
+  margin-left: 9vw;
+  color: #ffffff12;
+  -webkit-text-stroke: 1px #ffffff35;
+}
+
+.editorial-title .red-dot {
+  color: #ff2929;
+  -webkit-text-stroke: 0;
+}
+
+.editorial-helmet-wrap {
+  position: absolute;
+  inset: 15% 10% 8% 17%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.helmet-editorial .featured-helmet {
+  width: 100%;
+  max-width: 900px;
+  height: 100%;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 40px 40px #000)
+    drop-shadow(0 0 35px #ff171720);
+  animation: editorialFloat 6s ease-in-out infinite;
+}
+
+.editorial-side-label {
+  position: absolute;
+  right: 3%;
+  top: 44%;
+  writing-mode: vertical-rl;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #777;
+}
+
+.editorial-bottom {
+  position: absolute;
+  bottom: 48px;
+  left: 6%;
+  right: 6%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.editorial-kicker {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.editorial-description {
+  max-width: 300px;
+  margin-top: 8px;
+  color: #999;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.editorial-discover {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding: 16px 20px;
+  border: 1px solid #ffffff50;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: background .3s, border-color .3s;
+}
+
+.editorial-discover span {
+  color: #ff2929;
+  font-size: 17px;
+}
+
+.editorial-discover:hover {
+  background: #ff2929;
+  border-color: #ff2929;
+}
+
+.editorial-discover:hover span {
+  color: white;
+}
+
+.editorial-index {
+  position: absolute;
+  bottom: 55px;
+  right: 6%;
+  transform: translateY(-80px);
+  color: #ff2929;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px;
+}
+
+.editorial-index span {
+  color: #777;
+  font-size: 13px;
+}
+
+@keyframes editorialFloat {
+  0%, 100% {
+    transform: translateY(8px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .helmet-editorial {
+    height: 780px;
+    min-height: 100svh;
+    max-height: none;
+  }
+
+  .editorial-topline {
+    top: 88px;
+    left: 5%;
+    right: 5%;
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .editorial-topline span:last-child {
+    text-align: right;
+  }
+
+  .editorial-title {
+    top: 26%;
+    left: 2%;
+    font-size: 24vw;
+  }
+
+  .editorial-title > span:nth-child(2) {
+    margin-left: 4vw;
+  }
+
+  .editorial-helmet-wrap {
+    inset: 23% 0 22% 0;
+  }
+
+  .editorial-side-label {
+    right: 3%;
+    top: 44%;
+    font-size: 7px;
+    letter-spacing: 2px;
+  }
+
+  .editorial-bottom {
+    bottom: 35px;
+    left: 5%;
+    right: 5%;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .editorial-kicker {
+    font-size: 19px;
+  }
+
+  .editorial-description {
+    max-width: 270px;
+  }
+
+  .editorial-discover {
+    padding: 13px 16px;
+  }
+
+  .editorial-index {
+    right: 6%;
+    bottom: 48px;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .helmet-editorial .featured-helmet {
+    animation: none;
+  }
+}
+
+/* LUXURY HELMET SHOWROOM */
+
+.helmet-showroom {
+  min-height: 100svh;
+  height: 850px;
+  max-height: 1050px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(115deg, #080808 0%, #121010 48%, #080808 100%);
+  color: #f5f2ee;
+}
+
+.showroom-grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .14;
+  background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px);
+  background-size: 5px 5px;
+  pointer-events: none;
+}
+
+.showroom-light {
+  position: absolute;
+  z-index: -1;
+  width: 55vw;
+  height: 55vw;
+  max-width: 750px;
+  max-height: 750px;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #8c20202b 0%, #42131316 38%, transparent 70%);
+  pointer-events: none;
+}
+
+.showroom-ring {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 47%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  border: 1px solid #ffffff0c;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ring-one {
+  width: min(65vw, 750px);
+}
+
+.ring-two {
+  width: min(48vw, 560px);
+  border-color: #ff292915;
+}
+
+.showroom-top {
+  position: absolute;
+  top: 112px;
+  left: 6%;
+  right: 6%;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #888;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+}
+
+.showroom-heading {
+  position: absolute;
+  z-index: 1;
+  top: 20%;
+  left: 7%;
+  pointer-events: none;
+}
+
+.showroom-heading > span {
+  display: block;
+  margin-bottom: 14px;
+  color: #b5a4a4;
+  font-size: 9px;
+  letter-spacing: 4px;
+}
+
+.showroom-heading h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(42px, 6vw, 78px);
+  line-height: .87;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.showroom-heading h1 em {
+  color: #bcb3b0;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.showroom-product {
+  position: absolute;
+  inset: 13% 10% 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.product-halo {
+  position: absolute;
+  width: min(44vw, 520px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff242410 0%, #ff242405 45%, transparent 70%);
+  box-shadow: 0 0 100px #ff20200a;
+}
+
+.showroom-helmet {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  max-width: 790px;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 38px 32px #000c);
+  animation: showroomFloat 7s ease-in-out infinite;
+  transition: opacity .35s, filter .35s;
+  will-change: transform;
+}
+
+.product-index {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 16%;
+  color: #aaa;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.product-index span {
+  color: #ff3535;
+}
+
+.product-index b {
+  color: #fff;
+  font-weight: 500;
+}
+
+.showroom-caption {
+  position: absolute;
+  z-index: 4;
+  bottom: 52px;
+  left: 6%;
+  right: 6%;
+  display: grid;
+  grid-template-columns: 35px 1fr auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.caption-line {
+  width: 35px;
+  height: 1px;
+  background: #ff2929;
+}
+
+.caption-title {
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.caption-description {
+  margin-top: 8px;
+  color: #888;
+  font-size: 11px;
+}
+
+.showroom-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  padding: 16px 0 16px 20px;
+  border-bottom: 1px solid #ffffff50;
+  font-size: 9px;
+  letter-spacing: 2px;
+  transition: color .3s, border-color .3s;
+}
+
+.showroom-link span {
+  color: #ff2929;
+  font-size: 17px;
+}
+
+.showroom-link:hover {
+  color: #ff4545;
+  border-color: #ff2929;
+}
+
+.showroom-bottom-line {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 28px;
+  height: 1px;
+  background: #ffffff12;
+}
+
+@keyframes showroomFloat {
+  0%, 100% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@media (max-width: 760px) {
+  .helmet-showroom {
+    height: 780px;
+    min-height: 100svh;
+    max-height: none;
+  }
+
+  .showroom-top {
+    top: 90px;
+    left: 5%;
+    right: 5%;
+    font-size: 7px;
+    letter-spacing: 1.3px;
+  }
+
+  .showroom-heading {
+    top: 17%;
+    left: 6%;
+  }
+
+  .showroom-heading h1 {
+    font-size: clamp(44px, 11vw, 72px);
+  }
+
+  .showroom-heading > span {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .showroom-product {
+    inset: 26% 1% 23%;
+  }
+
+  .showroom-helmet {
+    max-width: 100%;
+  }
+
+  .product-halo {
+    width: 85vw;
+  }
+
+  .ring-one {
+    width: 90vw;
+  }
+
+  .ring-two {
+    width: 70vw;
+  }
+
+  .product-index {
+    right: 3%;
+    bottom: 8%;
+  }
+
+  .showroom-caption {
+    left: 5%;
+    right: 5%;
+    bottom: 44px;
+    grid-template-columns: 22px 1fr;
+    gap: 12px;
+  }
+
+  .caption-line {
+    width: 22px;
+  }
+
+  .caption-title {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .caption-description {
+    font-size: 10px;
+  }
+
+  .showroom-link {
+    grid-column: 2;
+    justify-self: start;
+    padding: 10px 0;
+    gap: 18px;
+  }
+
+  .showroom-bottom-line {
+    left: 5%;
+    right: 5%;
+    bottom: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showroom-helmet {
+    animation: none;
+  }
+}

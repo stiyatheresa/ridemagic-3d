@@ -1,0 +1,1181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helmet Collection | RideMagic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --red: #ff2929;
+      --black: #080808;
+      --white: #f5f5f5;
+      --muted: #858585;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* NAVIGATION */
+
+    .helmet-nav {
+      height: 82px;
+      padding: 0 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ffffff15;
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 10;
+    }
+
+    .helmet-logo img {
+      width: 145px;
+      display: block;
+    }
+
+    .back-link {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #bbb;
+      transition: color .3s;
+    }
+
+    .back-link:hover {
+      color: var(--red);
+    }
+
+    /* CINEMATIC HERO */
+
+    .helmet-hero {
+      min-height: 100svh;
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-columns: 0.85fr 1.4fr;
+      align-items: center;
+      padding: 115px 7% 55px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 70% 50%, #64111150 0%, transparent 43%),
+        linear-gradient(120deg, #090909, #101010 55%, #080808);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .15;
+      background-image:
+        linear-gradient(#ffffff0b 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff0b 1px, transparent 1px);
+      background-size: 65px 65px;
+      mask-image: linear-gradient(to right, transparent, black);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      animation: textReveal .8s ease both;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-size: 10px;
+      letter-spacing: 4px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero-copy h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(68px, 8.5vw, 128px);
+      line-height: .79;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .hero-copy h1 span {
+      color: var(--red);
+      display: block;
+    }
+
+    .hero-description {
+      max-width: 310px;
+      margin-top: 28px;
+      color: #999;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
+      margin-top: 30px;
+      padding: 15px 20px;
+      background: var(--red);
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      transition: background .3s, transform .3s;
+    }
+
+    .hero-cta:hover {
+      background: #d91515;
+      transform: translateY(-3px);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .orbit {
+      position: absolute;
+      width: min(42vw, 560px);
+      aspect-ratio: 1;
+      border: 1px solid #ffffff15;
+      border-radius: 50%;
+      animation: orbitPulse 5s ease-in-out infinite;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      border: 1px solid #ff292925;
+      border-radius: 50%;
+      inset: 9%;
+    }
+
+    .orbit::after {
+      inset: 20%;
+      border-color: #ffffff10;
+    }
+
+    .red-light {
+      position: absolute;
+      width: 70%;
+      aspect-ratio: 1;
+      background: #ff1717;
+      filter: blur(100px);
+      opacity: .15;
+      border-radius: 50%;
+      transition: opacity .5s;
+    }
+
+    .featured-helmet {
+      position: relative;
+      width: 112%;
+      max-width: 760px;
+      height: clamp(300px, 47vw, 620px);
+      object-fit: contain;
+      z-index: 2;
+      filter: drop-shadow(0 35px 45px #000);
+      transform: translateY(15px);
+      animation: helmetFloat 5s ease-in-out infinite;
+      transition: opacity .25s, filter .4s;
+    }
+
+    .hero-visual:hover .red-light {
+      opacity: .28;
+    }
+
+    .image-number {
+      position: absolute;
+      right: 0;
+      bottom: 8%;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      color: #777;
+      letter-spacing: 3px;
+    }
+
+    .image-number span {
+      color: var(--red);
+    }
+
+    .vertical-label {
+      position: absolute;
+      right: 3%;
+      top: 44%;
+      writing-mode: vertical-rl;
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: #777;
+    }
+
+    /* SELECTOR */
+
+
+/* DARK PREMIUM HELMET GALLERY */
+
+.selector-section {
+  min-height: 100vh;
+  padding: 125px 6% 80px;
+  background: #080808;
+  color: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+}
+
+.selector-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 6%;
+  right: 6%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ff2929, transparent);
+}
+
+.selector-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.selector-top p {
+  color: #f5f5f5;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.selector-top span {
+  color: #ff2929;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.helmet-selectors {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.helmet-option {
+  position: relative;
+  min-width: 0;
+  padding: 12px;
+  cursor: pointer;
+  text-align: left;
+  color: #fff;
+  background: #111;
+  border: 1px solid #292929;
+  transition: transform .35s ease, border-color .35s ease,
+              background .35s ease;
+}
+
+.helmet-option:hover,
+.helmet-option.active {
+  transform: translateY(-5px);
+  border-color: #ff2929;
+  background: #171111;
+}
+
+.helmet-option img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 25vw, 340px);
+  object-fit: contain;
+  padding: 12px;
+  background: radial-gradient(
+    ellipse at center,
+    #303030 0%,
+    #191919 55%,
+    #111111 100%
+  );
+  filter: drop-shadow(0 15px 20px #000);
+  transition: transform .4s ease, filter .4s ease;
+}
+
+.helmet-option:hover img,
+.helmet-option.active img {
+  transform: scale(1.06);
+}
+
+.option-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 17px 5px 8px;
+  border-top: 1px solid #303030;
+}
+
+.option-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(21px, 2vw, 28px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.option-arrow {
+  color: #ff2929;
+  font-size: 22px;
+  transition: transform .3s ease;
+}
+
+.helmet-option:hover .option-arrow,
+.helmet-option.active .option-arrow {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 760px) {
+  .selector-section {
+    padding: 100px 5% 50px;
+  }
+
+  .selector-top {
+    align-items: start;
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+
+  .helmet-selectors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .helmet-option img {
+    height: 165px;
+  }
+
+  .option-name {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 380px) {
+  .helmet-option img {
+    height: 125px;
+  }
+}
+
+
+/* CINEMATIC HELMET SHOWROOM */
+
+.helmet-showroom {
+  min-height: 100svh;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 120px 7% 45px;
+  background:
+    radial-gradient(ellipse at 70% 50%, #57131370, transparent 48%),
+    linear-gradient(135deg, #080808, #151111 55%, #080808);
+}
+
+.showroom-grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .12;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 3px, #ffffff08 4px
+  );
+}
+
+.showroom-light {
+  position: absolute;
+  z-index: -1;
+  width: 40vw;
+  aspect-ratio: 1;
+  right: 12%;
+  top: 20%;
+  border-radius: 50%;
+  background: #ff2020;
+  filter: blur(130px);
+  opacity: .12;
+}
+
+.showroom-ring {
+  position: absolute;
+  z-index: -1;
+  border: 1px solid #ffffff12;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.ring-one {
+  width: 48vw;
+  right: 7%;
+  top: 15%;
+}
+
+.ring-two {
+  width: 36vw;
+  right: 13%;
+  top: 21%;
+  border-color: #ff292925;
+}
+
+.showroom-top {
+  position: absolute;
+  top: 105px;
+  left: 7%;
+  right: 7%;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #888;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.showroom-heading {
+  position: relative;
+  z-index: 2;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.showroom-heading > span {
+  display: block;
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+}
+
+.showroom-heading h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(55px, 7vw, 105px);
+  line-height: .84;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.showroom-heading h1 em {
+  color: var(--red);
+  font-style: normal;
+}
+
+.showroom-product {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / 4;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-halo {
+  position: absolute;
+  width: 75%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #ff2020;
+  filter: blur(100px);
+  opacity: .12;
+}
+
+.showroom-helmet {
+  position: relative;
+  z-index: 1;
+  width: 115%;
+  max-width: 760px;
+  height: clamp(300px, 48vw, 600px);
+  object-fit: contain;
+  filter: drop-shadow(0 35px 45px #000);
+  animation: helmetFloat 5s ease-in-out infinite;
+  transition: opacity .25s, filter .3s;
+}
+
+.product-index {
+  position: absolute;
+  right: 0;
+  bottom: 9%;
+  color: #888;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.product-index span,
+.product-index b {
+  color: var(--red);
+}
+
+.showroom-caption {
+  grid-column: 1 / 3;
+  grid-row: 3;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-top: 22px;
+  border-top: 1px solid #ffffff20;
+}
+
+.caption-line {
+  width: 35px;
+  height: 2px;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+.caption-title {
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.caption-description {
+  margin-top: 7px;
+  color: #888;
+  font-size: 11px;
+}
+
+.showroom-link {
+  margin-left: auto;
+  color: #ddd;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+.showroom-link span {
+  color: var(--red);
+  margin-left: 8px;
+}
+
+.showroom-bottom-line {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .helmet-showroom {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 15px;
+    padding: 145px 6% 30px;
+  }
+
+  .showroom-top {
+    top: 100px;
+    left: 6%;
+    right: 6%;
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .showroom-heading {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .showroom-heading h1 {
+    font-size: clamp(60px, 15vw, 95px);
+  }
+
+  .showroom-product {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 300px;
+  }
+
+  .showroom-helmet {
+    width: 110%;
+    height: 320px;
+  }
+
+  .ring-one {
+    width: 85vw;
+    right: 5%;
+    top: 35%;
+  }
+
+  .ring-two {
+    width: 65vw;
+    right: 15%;
+    top: 40%;
+  }
+
+  .showroom-caption {
+    grid-column: 1;
+    grid-row: 3;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .showroom-link {
+    margin-left: 0;
+    width: 100%;
+    padding-top: 8px;
+  }
+
+  .product-index {
+    right: 2%;
+    bottom: 4%;
+  }
+}
+
+
+    /* IMAGE STORY */
+
+    .image-story {
+      position: relative;
+      min-height: 72vh;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 7%;
+      background:
+        linear-gradient(0deg, #050505 0%, #05050530 70%),
+        radial-gradient(ellipse at 70% 35%, #5b1111 0%, #171010 35%, #090909 75%);
+    }
+
+    .story-lines {
+      position: absolute;
+      width: 48vw;
+      height: 48vw;
+      max-height: 600px;
+      max-width: 600px;
+      border: 1px solid #ffffff12;
+      border-radius: 50%;
+      top: -15%;
+      right: -3%;
+      box-shadow: 0 0 0 60px #ffffff05, 0 0 0 120px #ffffff03;
+    }
+
+    .story-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .story-copy p {
+      color: var(--red);
+      font-size: 10px;
+      letter-spacing: 4px;
+      margin-bottom: 16px;
+    }
+
+    .story-copy h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(48px, 8vw, 105px);
+      line-height: .88;
+      font-weight: 900;
+    }
+
+    .story-copy h2 span {
+      color: #777;
+    }
+
+    .story-copy div {
+      max-width: 370px;
+      margin-top: 22px;
+      color: #999;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    /* BOTTOM CTA */
+
+    .helmet-footer-cta {
+      padding: 70px 7%;
+      text-align: center;
+      background: #f3f3f3;
+      color: #111;
+    }
+
+    .helmet-footer-cta p {
+      color: #d91d1d;
+      font-size: 10px;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+    }
+
+    .helmet-footer-cta h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: .95;
+      text-transform: uppercase;
+    }
+
+    .footer-button {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 16px 26px;
+      color: white;
+      background: #e52222;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      transition: background .3s;
+    }
+
+    .footer-button:hover {
+      background: #111;
+    }
+
+    .page-footer {
+      padding: 25px 7%;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      color: #777;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes helmetFloat {
+      0%, 100% { transform: translateY(15px) rotate(-2deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+
+    @keyframes orbitPulse {
+      0%, 100% { transform: scale(.97); opacity: .65; }
+      50% { transform: scale(1.03); opacity: 1; }
+    }
+
+    @keyframes textReveal {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 760px) {
+      .helmet-nav {
+        height: 68px;
+        padding: 0 5%;
+      }
+
+      .helmet-logo img {
+        width: 115px;
+      }
+
+      .back-link {
+        font-size: 9px;
+        letter-spacing: 1px;
+      }
+
+      .helmet-hero {
+        min-height: auto;
+        padding: 125px 6% 35px;
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(68px, 18vw, 110px);
+      }
+
+      .hero-description {
+        margin-top: 20px;
+      }
+
+      .hero-cta {
+        margin-top: 20px;
+      }
+
+      .hero-visual {
+        min-height: 320px;
+      }
+
+      .featured-helmet {
+        width: 115%;
+        height: 340px;
+      }
+
+      .orbit {
+        width: 80vw;
+      }
+
+      .vertical-label {
+        right: 0;
+      }
+
+      .image-number {
+        bottom: 1%;
+      }
+
+      .selector-section {
+        padding: 24px 5% 32px;
+      }
+
+      .helmet-selectors {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+     
+/* Smooth entrance animation */
+@keyframes helmetReveal {
+  from {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.helmet-option {
+  animation: helmetReveal 0.8s ease both;
+}
+
+.helmet-option:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.helmet-option:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.helmet-option:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+/* Gentle floating helmet images */
+@keyframes helmetFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.helmet-option img {
+  animation: helmetFloat 4s ease-in-out infinite;
+}
+
+.helmet-option:nth-child(2) img {
+  animation-delay: 0.5s;
+}
+
+.helmet-option:nth-child(3) img {
+  animation-delay: 1s;
+}
+
+.helmet-option:nth-child(4) img {
+  animation-delay: 1.5s;
+}
+
+/* Pause floating when hovering */
+.helmet-option:hover img {
+  animation-play-state: paused;
+  transform: scale(1.06);
+}
+
+
+      .image-story {
+        min-height: 55vh;
+        padding: 12% 6%;
+      }
+
+      .story-lines {
+        width: 90vw;
+        height: 90vw;
+        right: -30%;
+        top: 0;
+      }
+
+      .helmet-footer-cta {
+        padding: 55px 6%;
+      }
+
+      .page-footer {
+        padding: 22px 5%;
+      }
+    }
+    
+/* Remove the boxed appearance */
+.helmet-option {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible;
+  transition: transform 0.4s ease;
+}
+
+/* Keep helmets floating freely */
+.helmet-option img {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 15px 25px rgba(255, 20, 20, 0.12));
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Hover effect */
+.helmet-option:hover {
+  transform: translateY(-8px);
+}
+
+.helmet-option:hover img {
+  filter: drop-shadow(0 12px 30px rgba(255, 25, 25, 0.5));
+  transform: scale(1.06);
+}
+
+/* Keep the gallery background seamless */
+.selector-section {
+  background: #080808;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <header class="helmet-nav">
+    <a href="index.html" class="helmet-logo">
+      <img src="ASSETS/ridemagic-logo.png" alt="RideMagic">
+    </a>
+    <a href="index.html#gear" class="back-link">← BACK TO GEAR</a>
+  </header>
+
+  <main>
+   
+
+
+
+
+    <section class="selector-section" id="helmet-selector">
+      
+        <div class="selector-top">
+        <p>FIND YOUR PERFECT HELMET</p>
+        <span>EXPLORE THE COLLECTION ↘</span>
+        </div>
+
+      <div class="helmet-selectors">
+        <button class="helmet-option active"
+          data-image="ASSETS/helmet-carbon.png"
+          data-name="Carbon Series"
+          data-number="01"
+          data-description="Bold looks. A racing-inspired attitude.">
+          <img src="ASSETS/helmet-carbon.png" alt="Carbon helmet">
+          <div class="option-bottom">
+            <span class="option-name">Carbon</span>
+            <span class="option-arrow">↗</span>
+          </div>
+        </button>
+
+        <button class="helmet-option"
+          data-image="ASSETS/helmet-black.png"
+          data-name="Stealth Series"
+          data-number="02"
+          data-description="Clean lines. Dark attitude. Made to stand out.">
+          <img src="ASSETS/helmet-black.png" alt="Black motorcycle helmet">
+          <div class="option-bottom">
+            <span class="option-name">Stealth</span>
+            <span class="option-arrow">↗</span>
+          </div>
+        </button>
+
+        <button class="helmet-option"
+          data-image="ASSETS/helmet-sport.png"
+          data-name="Sport Series"
+          data-number="03"
+          data-description="A sporty look for riders who love the rush.">
+          <img src="ASSETS/helmet-sport.png" alt="Sport motorcycle helmet">
+          <div class="option-bottom">
+            <span class="option-name">Sport</span>
+            <span class="option-arrow">↗</span>
+          </div>
+        </button>
+
+        <button class="helmet-option"
+          data-image="ASSETS/ls2 helmet.png"
+          data-name="Classic Series"
+          data-number="04"
+          data-description="Distinctive design for your next adventure.">
+          <img src="ASSETS/ls2 helmet.png" alt="LS2 motorcycle helmet">
+          <div class="option-bottom">
+            <span class="option-name">Classic</span>
+            <span class="option-arrow">↗</span>
+          </div>
+        </button>
+        <button class="helmet-option"
+          data-image="ASSETS/helmet -1.png"
+          data-name="Bold, mysterious look"
+          data-number="04"
+          data-description="Distinctive design for your next adventure.">
+          <img src="ASSETS/helmet -1.png" alt="Bold, mysterious look">
+          <div class="option-bottom">
+            <span class="option-name">Phantom</span>
+            <span class="option-arrow">↗</span>
+          </div>
+        </button>
+        <button class="helmet-option"
+          data-image="ASSETS/helmet -2.png"
+          data-name="Speed-inspired"
+          data-number="04"
+          data-description="Distinctive design for your next adventure.">
+          <img src="ASSETS/helmet -2.png" alt="Speed-inspired">
+          <div class="option-bottom">
+            <span class="option-name">Velocity</span>
+            <span class="option-arrow">↗</span>
+          </div>
+        </button>
+         <button class="helmet-option"
+          data-image="ASSETS/helmet -3.png"
+          data-name="Apex-inspired"
+          data-number="04"
+          data-description="Distinctive design for your next adventure.">
+          <img src="ASSETS/helmet -3.png" alt="Apex-inspired">
+          <div class="option-bottom">
+            <span class="option-name">Apex</span>
+            <span class="option-arrow">↗</span>
+          </div>
+        </button>
+
+      </div>
+    </section>
+
+    
+
+    <section class="helmet-footer-cta">
+      <p>YOUR NEXT RIDE STARTS HERE</p>
+      <h2>GEAR UP. RIDE BEYOND.</h2>
+      <a href="index.html#gear" class="footer-button">EXPLORE ALL GEAR ↗</a>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <span>© RIDEMAGIC</span>
+    <span>GEAR UP. RIDE BEYOND.</span>
+    <a href="index.html">BACK TO HOMEPAGE ↑</a>
+  </footer>
+
+  <script>
+    const featuredHelmet = document.getElementById('featuredHelmet');
+    const currentNumber = document.getElementById('currentNumber');
+    const options = document.querySelectorAll('.helmet-option');
+    const heroVisual = document.getElementById('heroVisual');
+
+    options.forEach((option) => {
+      option.addEventListener('click', () => {
+        if (option.classList.contains('active')) return;
+
+        options.forEach((item) => item.classList.remove('active'));
+        option.classList.add('active');
+
+        featuredHelmet.style.opacity = '0';
+        featuredHelmet.style.filter = 'blur(8px)';
+
+        setTimeout(() => {
+          featuredHelmet.src = option.dataset.image;
+          featuredHelmet.alt = option.dataset.name + ' motorcycle helmet';
+          currentNumber.textContent = option.dataset.number;
+
+          featuredHelmet.onload = () => {
+            featuredHelmet.style.opacity = '1';
+            featuredHelmet.style.filter = 'drop-shadow(0 35px 45px #000)';
+          };
+
+          if (featuredHelmet.complete && featuredHelmet.naturalWidth > 0) {
+            featuredHelmet.style.opacity = '1';
+            featuredHelmet.style.filter = 'drop-shadow(0 35px 45px #000)';
+          }
+        }, 220);
+      });
+    });
+
+    // Reveal the image-story section as it enters the screen.
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach((section) => {
+      revealObserver.observe(section);
+    });
+
+    // Subtle mouse movement on desktop.
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      heroVisual.addEventListener('mousemove', (event) => {
+        const rect = heroVisual.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+        featuredHelmet.style.transform =
+          `translate(${x * 12}px, ${y * 12}px) rotate(${x * 4}deg)`;
+      });
+
+      heroVisual.addEventListener('mouseleave', () => {
+        featuredHelmet.style.transform = '';
+      });
+    }
+  </script>
+
+</body>
+</html>
