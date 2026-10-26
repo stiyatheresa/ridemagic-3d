@@ -252,6 +252,190 @@
     <i>↗</i>
   </a>
 </div>
+</section>
+
+
+<!-- CUSTOMER REVIEWS SECTION -->
+<section class="reviews-section" id="reviews">
+  <div class="reviews-container">
+
+    <div class="reviews-heading">
+      <div>
+        <p class="reviews-eyebrow">RIDEMAGIC / RIDER STORIES</p>
+        <h2>REAL RIDERS.<br><span>REAL REVIEWS.</span></h2>
+      </div>
+
+      <div class="reviews-controls">
+        <button class="review-arrow" id="reviewPrev"
+          aria-label="Previous review">&#8592;</button>
+        <button class="review-arrow" id="reviewNext"
+          aria-label="Next review">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="reviews-track-window">
+      <div class="reviews-track" id="reviewsTrack">
+
+       
+
+
+<!-- REVIEW 1: Vishal S -->
+<article class="review-card">
+  <div class="review-stars">★★★★★</div>
+
+  <p class="review-quote">
+    "Great place to visit for all riders and bikers.
+    I really enjoyed the variety of options available in here.
+    For riders it's a must check place! Do visit guys!"
+  </p>
+
+  <div class="review-bottom">
+    <img class="review-avatar"
+         src="assets/review-vishal.png"
+         alt="Vishal S">
+
+    <div class="review-author">
+      <h3>Vishal S</h3>
+      <p>Google review · 4 months ago</p>
+    </div>
+
+    <span class="review-mark">01</span>
+  </div>
+</article>
+
+<!-- REVIEW 2: jitu achar -->
+<article class="review-card">
+  <div class="review-stars">★★★★★</div>
+
+  <p class="review-quote">
+    "It was a wonderful experience. They were very friendly
+    and explained everything in detail. Must visit before conclusion."
+  </p>
+
+  <div class="review-bottom">
+    <img class="review-avatar"
+         src="assets/review-jitu.png"
+         alt="jitu achar">
+
+    <div class="review-author">
+      <h3>jitu achar</h3>
+      <p>Google review · 7 months ago</p>
+    </div>
+
+    <span class="review-mark">02</span>
+  </div>
+</article>
+
+<!-- REVIEW 3: Ganesh Hegde -->
+<article class="review-card">
+  <div class="review-stars">★★★★★</div>
+
+  <p class="review-quote">
+    "Has a variety of brands such as LS2, Rynox, Solace.
+    Helmet and riding gears collection is vast.
+    Staff explains all the products very well."
+  </p>
+
+  <div class="review-bottom">
+    <img class="review-avatar"
+         src="assets/review-ganesh.png"
+         alt="Ganesh Hegde">
+
+    <div class="review-author">
+      <h3>Ganesh Hegde</h3>
+      <p>Google review · July 2026</p>
+    </div>
+
+    <span class="review-mark">03</span>
+  </div>
+</article>
+
+
+      </div>
+    </div>
+
+    
+<!-- CUSTOMER REVIEW SUBMISSION -->
+<section class="review-submit-section" id="write-review">
+  <div class="review-submit-content">
+
+    <div class="review-submit-text">
+      <p class="section-label">YOUR RIDE. YOUR EXPERIENCE.</p>
+
+      <h2>GEARED UP?<br />
+        <span>TELL US.</span>
+      </h2>
+
+      <p>
+        Bought your riding gear at RideMagic?
+        Share your experience and help fellow riders
+        find the gear that fits their ride.
+      </p>
+
+      <div class="review-submit-note">
+        <span>★★★★★</span>
+        <p>Every rider has a story. We want to hear yours.</p>
+      </div>
+    </div>
+
+    <form class="review-submit-form" id="reviewSubmitForm">
+
+      <h3>WRITE A REVIEW</h3>
+
+      <label for="reviewName">Your name</label>
+      <input
+        type="text"
+        id="reviewName"
+        name="reviewName"
+        placeholder="Enter your name"
+        required
+      />
+
+      <label for="gearType">What did you purchase?</label>
+      <select id="gearType" name="gearType" required>
+        <option value="">Select your gear</option>
+        <option value="Helmet">Helmet</option>
+        <option value="Riding Jacket">Riding Jacket</option>
+        <option value="Gloves">Riding Gloves</option>
+        <option value="Riding Accessories">Riding Accessories</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label>Your rating</label>
+      <div class="review-star-rating" id="reviewStarRating">
+        <button type="button" data-rating="1" aria-label="1 star">★</button>
+        <button type="button" data-rating="2" aria-label="2 stars">★</button>
+        <button type="button" data-rating="3" aria-label="3 stars">★</button>
+        <button type="button" data-rating="4" aria-label="4 stars">★</button>
+        <button type="button" data-rating="5" aria-label="5 stars">★</button>
+      </div>
+
+      <input
+        type="hidden"
+        id="reviewRating"
+        name="reviewRating"
+        required
+      />
+
+      <label for="reviewMessage">Your experience</label>
+      <textarea
+        id="reviewMessage"
+        name="reviewMessage"
+        placeholder="Tell us about the gear, quality or service..."
+        rows="4"
+        required
+      ></textarea>
+
+      <button type="submit" class="review-submit-btn">
+        SUBMIT YOUR REVIEW ↗
+      </button>
+
+      <p class="review-form-message" id="reviewFormMessage"
+         aria-live="polite"></p>
+
+    </form>
+  </div>
+</section>
 
 
   <div class="brands-footer">

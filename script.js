@@ -393,3 +393,164 @@ if (activeHelmet) {
   }, 3500);
 })();
 
+/* =================================
+   RIDEMAGIC REVIEWS SLIDER
+================================= */
+
+(() => {
+  const track = document.getElementById("reviewsTrack");
+  const prevButton = document.getElementById("reviewPrev");
+  const nextButton = document.getElementById("reviewNext");
+  const counter = document.getElementById("reviewCounter");
+
+  if (!track || !prevButton || !nextButton) return;
+
+  const cards = Array.from(track.querySelectorAll(".review-card"));
+
+  if (!cards.length) return;
+
+  let currentIndex = 0;
+
+  function getVisibleCards() {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 900) return 2;
+    return 3;
+  }
+
+  function updateSlider() {
+    const visibleCards = getVisibleCards();
+    const maxIndex = Math.max(0, cards.length - visibleCards);
+
+    currentIndex = Math.min(currentIndex, maxIndex);
+
+    const cardStyle = window.getComputedStyle(cards[0]);
+    const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+    const cardWidth = cards[0].getBoundingClientRect().width;
+
+    track.style.transform =
+      `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+
+    if (counter) {
+      const start = String(currentIndex + 1).padStart(2, "0");
+      const end = String(cards.length).padStart(2, "0");
+      counter.textContent = `${start} / ${end}`;
+    }
+
+    prevButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex >= maxIndex;
+
+    prevButton.style.opacity = currentIndex === 0 ? "0.4" : "1";
+    nextButton.style.opacity =
+      currentIndex >= maxIndex ? "0.4" : "1";
+  }
+
+  prevButton.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  });
+
+  nextButton.addEventListener("click", () => {
+    const maxIndex = Math.max(0, cards.length - getVisibleCards());
+
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
+
+  window.addEventListener("resize", updateSlider);
+
+  updateSlider();
+})();
+
+/* ===== RIDEMAGIC REVIEW FORM ===== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const starContainer = document.getElementById("reviewStarRating");
+  const ratingInput = document.getElementById("reviewRating");
+  const reviewForm = document.getElementById("reviewSubmitForm");
+  const message = document.getElementById("reviewFormMessage");
+
+  if (!starContainer || !ratingInput || !reviewForm || !message) {
+    return;
+  }
+
+  const stars = starContainer.querySelectorAll("button");
+  let selectedRating = 0;
+
+  // Interactive star rating
+  function updateStars(rating) {
+    stars.forEach((star) => {
+      const value = Number(star.dataset.rating);
+      star.classList.toggle("active", value <= rating);
+      star.setAttribute(
+        "aria-pressed",
+        value === selectedRating ? "true" : "false"
+      );
+    });
+  }
+
+  stars.forEach((star) => {
+    star.addEventListener("mouseenter", () => {
+      updateStars(Number(star.dataset.rating));
+    });
+
+    star.addEventListener("focus", () => {
+      updateStars(Number(star.dataset.rating));
+    });
+
+    star.addEventListener("click", () => {
+      selectedRating = Number(star.dataset.rating);
+      ratingInput.value = selectedRating;
+      updateStars(selectedRating);
+    });
+  });
+
+  starContainer.addEventListener("mouseleave", () => {
+    updateStars(selectedRating);
+  });
+
+  starContainer.addEventListener("focusout", () => {
+    setTimeout(() => {
+      if (!starContainer.contains(document.activeElement)) {
+        updateStars(selectedRating);
+      }
+    }, 0);
+  });
+
+  // Review form submission
+  reviewForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (selectedRating === 0) {
+      message.textContent = "Please select a star rating.";
+      starContainer.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+      return;
+    }
+
+    const name = document.getElementById("reviewName").value.trim();
+    const gear = document.getElementById("gearType").value;
+    const review = document.getElementById("reviewMessage").value.trim();
+
+    if (!name || !gear || !review) {
+      message.textContent = "Please complete all fields.";
+      return;
+    }
+
+    // Front-end confirmation only.
+    // A database or review service is needed to save reviews permanently.
+    message.textContent =
+      "Thank you for sharing your RideMagic experience! Your review has been filled in successfully, but has not been published or saved.";
+
+    reviewForm.reset();
+    selectedRating = 0;
+    ratingInput.value = "";
+    updateStars(0);
+  });
+});
+
